@@ -5,7 +5,7 @@ function capitalize(string) {
 function reverseString(string) {
   let newStr = '';
   for (let i = string.length - 1; i >= 0; i--) {
-    newStr += (string.charAt(i));
+    newStr += string.charAt(i);
   }
   return newStr;
 }
@@ -15,6 +15,25 @@ const calculator = {
   subtract: (num1, num2) => num1 - num2,
   multiply: (num1, num2) => num1 * num2,
   divide: (num1, num2) => num1 / num2,
+};
+
+function caesarCipher(string, shift) {
+  let newStr = '';
+  for (let i = 0; i < string.length; i++) {
+    const code = string.charCodeAt(i);
+    if (code > 64 && code < 91) {
+      let newCode = code + shift;
+      if (newCode > 90) newCode = newCode - 90 + 64;
+      newStr += String.fromCharCode(newCode);
+    } else if (code > 96 && code < 123) {
+      let newCode = code + shift;
+      if (newCode > 122) newCode = newCode - 122 + 96;
+      newStr += String.fromCharCode(newCode);
+    } else {
+      newStr += string.charAt(i);
+    }
+  }
+  return newStr;
 }
 
-module.exports = { capitalize, reverseString, calculator };
+module.exports = { capitalize, reverseString, calculator, caesarCipher };
