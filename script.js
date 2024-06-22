@@ -3,7 +3,7 @@ function capitalize(string) {
 }
 
 function reverseString(string) {
-  let newStr = '';
+  let newStr = "";
   for (let i = string.length - 1; i >= 0; i--) {
     newStr += string.charAt(i);
   }
@@ -18,7 +18,7 @@ const calculator = {
 };
 
 function caesarCipher(string, shift) {
-  let newStr = '';
+  let newStr = "";
   for (let i = 0; i < string.length; i++) {
     const code = string.charCodeAt(i);
     if (code > 64 && code < 91) {
@@ -36,4 +36,27 @@ function caesarCipher(string, shift) {
   return newStr;
 }
 
-module.exports = { capitalize, reverseString, calculator, caesarCipher };
+function analyzeArray(array) {
+  let sum = 0;
+  let min = array[0];
+  let max = array[0];
+  array.forEach((elem) => {
+    sum += elem;
+    if (elem < min) min = elem;
+    if (elem > max) max = elem;
+  });
+  return {
+    average: sum / array.length,
+    min,
+    max,
+    length: array.length,
+  };
+}
+
+module.exports = {
+  capitalize,
+  reverseString,
+  calculator,
+  caesarCipher,
+  analyzeArray,
+};

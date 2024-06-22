@@ -3,6 +3,7 @@ const {
   reverseString,
   calculator,
   caesarCipher,
+  analyzeArray
 } = require("./script");
 
 test("Capitalize", () => {
